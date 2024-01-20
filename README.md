@@ -7,6 +7,7 @@
 ![](./doc/graph.png)
 
 # 安装/使用
+[demo](http://ws2http.skyup.top/)
 * 安装依赖库`npm install`
 * 启动服务器 `node server.js 端口号`不指定端口默认为8080
   
