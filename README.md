@@ -9,7 +9,12 @@
 # 安装/使用
 * 安装依赖库`npm install`
 * 启动服务器 `node server.js 端口号`不指定端口默认为8080
-
+  
+# 常见问题
+* `has been blocked by CORS policy: The request client is not a secure context and the resource is in more-private address space private.`
+  > 浏览器跨域限制，打开chrome://flags， 关闭 Block insecure private network requests
+* `Mixed Content: The page at 'https://xxx' was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint 'http://10.5.1.96/xxx'. This request has been blocked; the content must be served over HTTPS.
+  > 浏览器不允许在https网站访问http的请求，外网换成http或者打开chrome://flags，激活并配置Insecure origins treated as secure
 # 界面
 ![](./doc/view.png)
 
