@@ -1,6 +1,7 @@
 const WebSocket = require("ws")
 const express = require("express");
 const http = require("http")
+const path = require("path")
 
 let PATH_CONFIG= {}
 
@@ -32,7 +33,7 @@ function forward_request(req, res, next) {
 function start_listen(port) {
     console.log("start listen on port", port)
     const app = express()
-    app.use(express.static("static"))
+    app.use(express.static(path.join(__dirname, "static")))
     app.use(forward_request)
     const server = http.createServer(app)
     const ws = new WebSocket.Server({
@@ -63,7 +64,7 @@ function start_listen(port) {
                         return
                     }
                     let cfg = PATH_CONFIG[path]
-                    cfg.res?.send(data.data)
+                    cfg.res.send(data.data)
                 } else if (data.oper == "get_path_list") {
                     let paths = []
                     for(let path in PATH_CONFIG) {
